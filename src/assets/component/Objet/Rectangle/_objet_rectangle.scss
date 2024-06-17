@@ -1,0 +1,29 @@
+.frameRectangle {
+  width: 80px;
+  height: 140px;
+  border: 3px solid $primary-color;
+  background-color: rgba(63, 187, 206, 0.368);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  .frameRectangle-title {
+    height: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid $primary-color;
+    font-family: $text-font-2;
+    font-weight: 500;
+    font-size: 12px;
+    background-color: rgba(175, 205, 210, 0.531);
+  }
+  .frameRectangle-img {
+    width: 60px;
+    height: 125px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+  }
+  img {
+    width: 100%;
+  }
+}

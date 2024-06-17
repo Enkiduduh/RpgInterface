@@ -1,0 +1,75 @@
+.buttonSkill-container {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+  width: 170px;
+  font-family: $text-font-2;
+  // border: 1px solid $primary-color;
+  .buttonSkillTitle {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: $secondary-color;
+    text-shadow: 0 0 10px $secondary-color;
+  }
+  .buttonSkill {
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    border: 5px solid $primary-color;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    span {
+      text-align: center;
+      color: $primary-color;
+      font-size: 15px;
+    }
+  }
+  .spanSkill {
+    margin: 10px 0 0 0;
+    color: $secondary-color;
+    text-shadow: 0 0 10px $secondary-color;
+  }
+}
+//------------------------------//
+.buttonSkill-containerSub {
+  display: flex;
+  flex-direction: column;
+  margin: 5px auto;
+  width: 120px;
+  font-family: $text-font-2;
+  // border: 1px solid $primary-color;
+  .buttonSkillTitleSub {
+    margin: 0 0 10px 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: $secondary-color;
+    text-shadow: 0 0 10px $secondary-color;
+  }
+  .buttonSkillSub {
+    margin: 0 auto;
+    width: 25px;
+    height: 25px;
+    border: 4px solid $primary-color;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    span {
+      text-align: center;
+      color: $primary-color;
+      font-size: 15px;
+    }
+  }
+  .spanSkillSub {
+    text-align: center;
+    font-size: 12px;
+    margin: 10px 0 0 0;
+    color: $secondary-color;
+    text-shadow: 0 0 10px $secondary-color;
+  }
+}

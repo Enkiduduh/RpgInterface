@@ -1,0 +1,52 @@
+.frameSquare {
+  width: 80px;
+  height: 80px;
+  border: 3px solid $primary-color;
+  margin: 10px 0;
+  background-color: rgba(63, 187, 206, 0.368);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  .frameSquare-title {
+    height: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid $primary-color;
+    font-family: $text-font-2;
+    font-weight: 500;
+    font-size: 12px;
+    background-color: rgba(175, 205, 210, 0.531);
+  }
+  .frameSquare-img {
+    width: 60px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    justify-content: center;
+  }
+  img {
+    width: 80%;
+  }
+}
+.frameSquareModal {
+  position: relative;
+  ul {
+    list-style: none;
+    width: 250px;
+    border: 2px solid white;
+    background-color: $tertiary-color;
+    opacity: 0.8;
+    padding: 5px;
+    margin: 0;
+    position: absolute;
+    z-index: 50;
+    bottom: 20px;
+    left: 85px;
+    border-radius: 5px;
+    color: $primary-color;
+    font-family: $text-font-2;
+    font-size: 16px;
+    font-weight:600;
+  }
+}

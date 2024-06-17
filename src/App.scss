@@ -1,0 +1,32 @@
+@import
+'./assets/styles/variables',
+'./assets/component/Objet/Square/objet_square',
+'./assets/component/Objet/Rectangle/objet_rectangle',
+'./assets/component/Frame_Char/frame_char',
+'./assets/component/Frame_Stats/frame_stats',
+'./assets/component/Objet/SelectClass/select_class',
+'./assets/component/Objet/SelectGender/select_gender',
+'./assets/component/Objet/SelectRace/select_race',
+'./assets/component/New_Char/new_char',
+'./assets/component/Objet/StatsModifier/stats_modifier',
+'./assets/component/Chars_List/chars_list',
+'./assets/component/Objet/New_Char_Stats/new_char_stats',
+'./assets/component/Skill_Page/skill_page',
+'./assets/component/Objet/Button_Skill/button_skill',
+'./assets/component/Objet/Stat_Display/stats_display',
+'./assets/component/Combat_Page/combat_page';
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.5rem;
+  user-select: none;
+}
+
+body {
+  background: grey;
+}
+.main-frame {
+  display: flex;
+  justify-content: center;
+}

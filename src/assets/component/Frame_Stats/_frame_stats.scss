@@ -1,0 +1,126 @@
+// .frameStats-container {
+//   width: 420px;
+//   border: 5px solid $primary-color;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   margin: 0 10px;
+//   padding: 20px 0;
+//   // background: $primary-color;
+//   background: #912c22;
+//   position: relative;
+
+//   .frameStats-main-infos-wrapper {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     width: 400px;
+//     height: 80px;
+//     margin: 5px 20px;
+
+//     .frameStats-main-infos {
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       width: 400px;
+//       span {
+//         font-size: 18px;
+//       }
+//       .frameStats-main-infos-left {
+//         display: flex;
+//         flex-direction: column;
+//         width:150px;
+//       }
+//       .frameStats-main-infos-middle {
+//         img {
+//           width: 60px;
+//         }
+//       }
+//       .frameStats-main-infos-right {
+//         display: flex;
+//         flex-direction: column;
+//         text-align: right;
+//         width:150px;
+//       }
+//     }
+//   }
+//   .frameStats-stats-infos-wrapper {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     width: 400px;
+//     margin: 10px 0;
+//     .frameStats-stats-infos-left {
+//       display: flex;
+//       flex-direction: column;
+//       width: 50%;
+//     }
+//     .frameStats-stats-infos-right {
+//       display: flex;
+//       flex-direction: column;
+//       width: 50%;
+//     }
+//   }
+//   .frameStats-sub-infos-wrapper {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     width: 400px;
+//     margin: 10px 0;
+//     .frameStats-sub-infos-left {
+//       display: flex;
+//       flex-direction: column;
+//       width: 50%;
+//     }
+//     .frameStats-sub-infos-right {
+//       display: flex;
+//       flex-direction: column;
+//       width: 50%;
+//     }
+//   }
+//   .frameStats-last-infos {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     width: 400px;
+//     margin: 10px 0;
+//     .frameStats-last-infos-left {
+//       display: flex;
+//       flex-direction: column;
+//       width: 50%;
+//     }
+//     .frameStats-last-infos-right {
+//       display: flex;
+//       flex-direction: column;
+//       width: 50%;
+//     }
+//   }
+//   .stats {
+//     display: flex;
+//     justify-content: space-between;
+//     .stats-value-left {
+//       margin: 0 12px;
+//     }
+//   }
+//   span {
+//     font-family: $text-font-2;
+//     font-weight: 500;
+//     font-size: 14px;
+//     color: $secondary-color;
+//     text-shadow: 0 0 10px $secondary-color;
+//   }
+//   .line-abs-top {
+//     height: 20px;
+//     width: 100%;
+//     background: $primary-color;
+//     position: absolute;
+//     bottom: 0;
+//   }
+//   .line-abs-bottom {
+//     height: 20px;
+//     width: 100%;
+//     background: $primary-color;
+//     position: absolute;
+//     top: 0;
+//   }
+// }

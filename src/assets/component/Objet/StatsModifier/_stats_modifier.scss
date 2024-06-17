@@ -1,0 +1,55 @@
+.Stat-bonus-container {
+  display: flex;
+  height: 24px;
+  align-items: center;
+  color: $secondary-color;
+  text-shadow: 0 0 10px $secondary-color;
+  font-weight: 600;
+}
+
+.Stat-point {
+  display: flex;
+  justify-content: space-between;
+  width: 190px;
+  .Stat-pointPlusBase {
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
+  }
+  .Stat-pointsButton-wrapper {
+    width: 50px;
+    #add-point {
+      border: 2px solid $primary-color;
+      border-radius: 5px;
+      background-color: black;
+      color: $secondary-color;
+      margin: 0 1px;
+      .Stat-pointsButton {
+      }
+    }
+    #sub-point {
+      border: 2px solid $primary-color;
+      border-radius: 5px;
+      background-color: black;
+      color: $secondary-color;
+      .Stat-pointsButton {
+        display: block;
+        width: 10px;
+      }
+    }
+  }
+}
+
+.visual {
+  width: 10px;
+  height: 16px;
+  border: 3px solid $primary-color;
+  background: $tertiary-color;
+  margin: 0 2px;
+}
+.Stat-point-visual {
+  display: flex;
+  margin: 0 10px;
+}

@@ -1,0 +1,86 @@
+{
+  "chars": [
+    {
+      "id" : 1,
+      "data-main": {
+        "name": "Enkiduh",
+        "level": "49",
+        "classe": "Pyro Mage"
+      },
+      "data-stats": {
+        "health": "3750",
+        "mana": "7500",
+        "force": "50",
+        "dexterity": "90",
+        "agility": "20",
+        "intelligence": "250",
+        "spirit": "180",
+        "resilience": "120"
+
+      },
+      "data-sub": {
+        "damage": "300",
+        "precision": "120",
+        "critical": "10",
+        "physical damage": "90",
+        "fire damage": "20",
+        "cold damage": "25",
+        "nature damage": "18",
+        "electric damage": "12",
+        "divine damage": "5",
+        "darkness damage": "75",
+        "defense": "45",
+        "flee": "20",
+        "resistance": "30",
+        "physical resistance": "70",
+        "fire resistance": "20",
+        "cold resistance": "25",
+        "nature resistance": "18",
+        "electric resistance": "12",
+        "divine resistance": "57",
+        "darkness resistance": "75"
+      }
+    },
+    {
+      "id" : 2,
+      "data-main": {
+        "name": "Sharjak",
+        "level": "52",
+        "classe": "Vanguard"
+      },
+      "data-stats": {
+        "health": "7000",
+        "mana": "1600",
+        "force": "150",
+        "dexterity": "190",
+        "agility": "180",
+        "intelligence": "50",
+        "spirit": "20",
+        "resilience": "60"
+
+      },
+      "data-sub": {
+        "damage": "550",
+        "precision": "320",
+        "critical": "30",
+        "physical damage": "300",
+        "fire damage": "0",
+        "cold damage": "0",
+        "nature damage": "150",
+        "electric damage": "0",
+        "divine damage": "0",
+        "darkness damage": "0",
+        "defense": "421",
+        "flee": "35",
+        "resistance": "40",
+        "physical resistance": "200",
+        "fire resistance": "45",
+        "cold resistance": "45",
+        "nature resistance": "80",
+        "electric resistance": "45",
+        "divine resistance": "30",
+        "darkness resistance": "30"
+      }
+    }
+  ]
+}

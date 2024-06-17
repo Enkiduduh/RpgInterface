@@ -1,0 +1,16 @@
+.selectClass {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  #char-class {
+    width: 150px;
+    background: $primary-color;
+    border: 3px solid $tertiary-color;
+    font-family: $text-font-2;
+    font-weight: 600;
+    option {
+      font-family: $text-font-1;
+      font-size:14px;
+    }
+  }
+}
