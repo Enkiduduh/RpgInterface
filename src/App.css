@@ -779,24 +779,28 @@ h3 {
 }
 
 .combatPage-container {
-  width: 1200px;
-  height: 700px;
-  background: rgba(255, 0, 0, 0.6941176471);
+  width: 1100px;
+  height: 620px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .combatPage-container .combatPage-CombatText-container {
-  width: 900px;
+  width: 1095px;
   height: 80px;
-  background: blue;
-  border: 3px solid black;
+  background: black;
+  border: 3px solid white;
+  color: white;
+  font-size: 22px;
+  font-family: "Signika Negative", sans-serif;
+  text-align: center;
+  align-content: center;
 }
 .combatPage-container .combatPage-battleScreen-container {
   width: 1100px;
   height: 330px;
-  background: green;
+  background: rgb(241, 220, 193);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -804,20 +808,62 @@ h3 {
 .combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper {
   width: 350px;
   height: 300px;
-  background: rgba(255, 0, 0, 0.6941176471);
   margin: 0 auto;
 }
-.combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img {
-  background: yellow;
+.combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img-container {
+  background: white;
   height: 250px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
-.combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img .opponent-img {
+.combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img-container .opponent-img-wrapper {
   width: 100px;
-  height: 170px;
-  background: rgba(255, 0, 0, 0.6941176471);
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img-container .opponent-img-wrapper .opponentLife-container {
+  border: 3px solid black;
+  width: 95px;
+  height: 20px;
+  background: white;
+  text-align: center;
+}
+.combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img-container .opponent-img-wrapper .opponentLife-container .opponentLife {
+  background: blue;
+  height: 20px;
+  color: white;
+}
+.combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img-container .opponent-img-wrapper .opponentImg {
+  background: rgb(209, 211, 209);
+  width: 140px;
+  height: 164px;
+  background-image: url("../../images/playerSprites.png");
+  background-size: cover;
+  animation-name: marche;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(5);
+  margin: 0 auto;
+  transform: scaleX(-1);
+}
+@keyframes marche {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -1200px 0;
+  }
+}
+.combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img-container .opponent-img-wrapper .targetFoe {
+  width: 100%;
+  height: 32px;
+  text-align: center;
+}
+.combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img-container .opponent-img-wrapper .targetFoe img {
+  width: 30px;
 }
 .combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-infos {
   background: orange;
@@ -826,8 +872,50 @@ h3 {
 .combatPage-container .battleScreen-player-wrapper {
   width: 350px;
   height: 300px;
-  background: rgba(255, 0, 0, 0.6941176471);
   margin: 0 auto;
+}
+.combatPage-container .battleScreen-player-wrapper .battleScreen-player-img-container {
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+.combatPage-container .battleScreen-player-wrapper .battleScreen-player-img-container .player-img-wrapper {
+  width: 100px;
+  height: 170px;
+}
+.combatPage-container .battleScreen-player-wrapper .battleScreen-player-img-container .player-img-wrapper .playerLife-container {
+  border: 3px solid black;
+  width: 95px;
+  height: 20px;
+  margin-bottom: 10px;
+  background: white;
+}
+.combatPage-container .battleScreen-player-wrapper .battleScreen-player-img-container .player-img-wrapper .playerLife-container .playerLife {
+  background: blue;
+  width: 100%;
+  height: 20px;
+}
+.combatPage-container .battleScreen-player-wrapper .battleScreen-player-img-container .player-img-wrapper .playerImg {
+  background: rgb(209, 211, 209);
+  width: 200px;
+  height: 164px;
+  background-image: url("../../images/playerSprites.png");
+  background-size: cover;
+  animation-name: marche;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(5);
+  margin: 0 auto;
+}
+@keyframes marche {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -1200px 0;
+  }
 }
 .combatPage-container .battleScreen-player-wrapper .battleScreen-player-img {
   background: yellow;
@@ -848,23 +936,22 @@ h3 {
 
 .combatPage-battleCommand-container {
   width: 1100px;
-  height: 220px;
-  background: blueviolet;
+  height: 270px;
+  background: rgb(0, 0, 0);
   display: flex;
   justify-content: space-between;
 }
 .combatPage-battleCommand-container .battleCommand-wrapper-left {
   width: 200px;
-  background: yellow;
 }
 .combatPage-battleCommand-container .battleCommand-wrapper-center {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: relative;
 }
 .combatPage-battleCommand-container .battleCommand-wrapper-right {
   width: 200px;
-  background: yellow;
 }
 
 .battleCommand-card {
@@ -877,6 +964,12 @@ h3 {
   text-align: center;
   color: white;
   text-shadow: 0 0 10px white;
+  transition: margin-bottom 235ms ease-in-out 0s;
+}
+.battleCommand-card:hover {
+  border: 3px solid rgb(218, 165, 68);
+  transform: scale(1.2);
+  transition: transform 0.2s;
 }
 .battleCommand-card span {
   font-family: "Cinzel", serif;
@@ -888,18 +981,22 @@ h3 {
   justify-content: space-between;
   align-items: center;
   height: 35px;
-  padding: 0px 3px;
+  padding: 2px 3px;
   display: flex;
 }
 .battleCommand-card .cardTitle-symbol .symbol {
   background: rgba(230, 229, 229, 0.8);
-  border: 2px solid white;
+  border: 2px solid rgb(218, 165, 68);
+  box-shadow: inset 0 0 5px black;
   border-radius: 20px;
   width: 22px;
   height: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.battleCommand-card .cardTitle-symbol .symbol img {
+  width: 18px;
 }
 .battleCommand-card .cardTitle-symbol h4 {
   margin: 5px 0 5px 0;
@@ -913,10 +1010,37 @@ h3 {
   flex-direction: column;
   margin: 5px 5px;
 }
-.battleCommand-card .damage-effect {
+.battleCommand-card .cardResume {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  padding: 0 3px;
+}
+.battleCommand-card .cardResume .damage,
+.battleCommand-card .cardResume .cost {
   margin-top: 5px;
   display: flex;
   flex-direction: column;
+  border: 2px solid rgb(218, 165, 68);
+  box-shadow: inset 0 0 5px black;
+  border-radius: 30px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Cinzel", serif;
+  font-size: 16px;
+  font-weight: 800;
+  background: rgba(230, 229, 229, 0.8);
+  text-shadow: 0 0 10px white;
+}
+.battleCommand-card .cardResume .effect {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
 }
 
 .lineCard {
@@ -932,33 +1056,65 @@ h3 {
 .physical {
   background: rgb(124, 123, 123);
 }
+.physical .damage,
+.physical .cost {
+  color: rgb(124, 123, 123);
+}
 
 .magical {
   background: rgb(39, 129, 110);
+}
+.magical .damage,
+.magical .cost {
+  color: rgb(39, 129, 110);
 }
 
 .fire {
   background: rgb(152, 26, 26);
 }
+.fire .damage,
+.fire .cost {
+  color: rgb(152, 26, 26);
+}
 
 .cold {
   background: rgb(26, 81, 152);
+}
+.cold .damage,
+.cold .cost {
+  color: rgb(26, 81, 152);
 }
 
 .electric {
   background: rgb(91, 26, 152);
 }
+.electric .damage,
+.electric .cost {
+  color: rgb(91, 26, 152);
+}
 
 .nature {
   background: rgb(26, 152, 70);
+}
+.nature .damage,
+.nature .cost {
+  color: rgb(26, 152, 70);
 }
 
 .divine {
   background: rgb(152, 144, 26);
 }
+.divine .damage,
+.divine .cost {
+  color: rgb(152, 144, 26);
+}
 
 .darkness {
   background: rgb(59, 48, 77);
+}
+.darkness .damage,
+.darkness .cost {
+  color: rgb(59, 48, 77);
 }
 
 #root {
