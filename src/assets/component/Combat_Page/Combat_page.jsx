@@ -1,3 +1,7 @@
+import Cards from "../Objet/Cards/Cards";
+
+
+
 function Combat_page() {
   return (
     <div className="combatPage-container">
@@ -21,31 +25,54 @@ function Combat_page() {
       <div className="combatPage-battleCommand-container">
         <div className="battleCommand-wrapper-left"></div>
         <div className="battleCommand-wrapper-center">
-          <div className="battleCommand-card"></div>
-          <div className="battleCommand-card"></div>
-          <div className="battleCommand-card"></div>
-          <div className="battleCommand-card">
-              <div className="cardTitle-symbol">
-                <span className="symbol">A</span>
-              <h4>Lance de glace</h4>
-                <span className="symbol">T</span>
-              </div>
-           <div className="lineCard"></div>
-            <div className="damage-mainDamage">
-              <span>Main Damage Type </span>
-              <span>Main Damage</span>
-            </div>
-            <div className="lineCard"></div>
-            <div className="damage-subDamage">
-              <span>Sub Damage Type </span>
-              <span>Sub Damage</span>
-            </div>
-            <div className="lineCard"></div>
-            <div className="damage-effect">
-              <span>Effect 1</span>
-              <span>Effect 2</span>
-            </div>
-          </div>
+          <Cards
+          nameCard="Lance de glace"
+          backgroundElement="cold"
+          element="cold"
+          attribut="physical"
+          mainDamageType="Dégât de Froid"
+          mainDamage={3}
+          subDamageType="Dégât Physique"
+          subDamage={1}
+          effect1="Gel"
+          effect2={null}
+          />
+          <Cards
+          nameCard="Brise-Âme"
+          backgroundElement="darkness"
+          element="darkness"
+          attribut="magical"
+          mainDamageType="Dégât de Malice"
+          mainDamage={3}
+          subDamageType="Dégât Magique"
+          subDamage={3}
+          effect1="Peur"
+          effect2={null}
+          />
+          <Cards
+          nameCard="Entaille"
+          backgroundElement="physical"
+          element="physical"
+          attribut="physical"
+          mainDamageType="Dégât Physique"
+          mainDamage={3}
+          subDamageType="-"
+          subDamage="-"
+          effect1="-"
+          effect2={null}
+          />
+         <Cards
+          nameCard="Transper'Ciel"
+          backgroundElement="electric"
+          element="electric"
+          attribut="magical"
+          mainDamageType="Dégât de Foudre"
+          mainDamage={5}
+          subDamageType="Dégât de Feu"
+          subDamage={2}
+          effect1="Paralyse"
+          effect2="Enflamme"
+          />
         </div>
         <div className="battleCommand-wrapper-right"></div>
       </div>

@@ -1,9 +1,97 @@
 .battleCommand-card {
-  width: 150px;
-  height: 180px;
+  width: 190px;
+  height: 190px;
   margin: 20px;
-  background: $secondary-color;
+  // background: rgb(26, 81, 152);
   border-radius: 5px;
-  border: 3px solid $tertiary-color;
-  box-shadow: inset 0 0 30px $blood-color;
+  border: 2px solid $secondary-color;
+  box-shadow: inset 0 0 70px $tertiary-color;
+  text-align: center;
+  color: $secondary-color;
+  text-shadow: 0 0 10px $secondary-color;
+  span {
+    font-family: $text-font-2;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .cardTitle-symbol {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+    padding: 0px 3px;
+    display: flex;
+    .symbol {
+      background: rgba(230, 229, 229, 0.8);
+      border: 2px solid $secondary-color;
+      border-radius: 20px;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    h4 {
+      margin: 5px 0 5px 0;
+      font-family: $text-font-2;
+      font-size: 14px;
+      font-weight: 800;
+    }
+  }
+
+  .damage-mainDamage,
+  .damage-subDamage {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 5px;
+  }
+  .damage-effect {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.lineCard {
+  width: 150px;
+  height: 2px;
+  margin: 0 auto;
+  border-radius: 15px;
+  border: 1px solid $secondary-color;
+  background: rgb(0, 0, 0);
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 38%,
+    rgba(145, 0, 0, 1) 71%,
+    rgba(218, 165, 68, 1) 100%
+  );
+}
+
+.physical {
+  background: rgb(124, 123, 123);
+}
+
+.magical {
+  background: rgb(39, 129, 110);
+}
+
+.fire {
+  background: rgb(152, 26, 26);
+}
+.cold {
+  background: rgb(26, 81, 152);
+}
+
+.electric {
+  background: rgb(91, 26, 152);
+}
+
+.nature {
+  background: rgb(26, 152, 70);
+}
+.divine {
+  background: rgb(152, 144, 26);
+}
+
+.darkness {
+  background: rgb(59, 48, 77);
 }
