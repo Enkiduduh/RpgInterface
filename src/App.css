@@ -942,9 +942,14 @@ h3 {
   justify-content: space-between;
 }
 .combatPage-battleCommand-container .battleCommand-wrapper-left {
-  width: 200px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .combatPage-battleCommand-container .battleCommand-wrapper-center {
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -954,29 +959,44 @@ h3 {
   width: 200px;
 }
 
-.battleCommand-card {
-  width: 190px;
-  height: 190px;
-  margin: 20px;
-  border-radius: 5px;
-  border: 2px solid white;
+.battleCommand-card-container {
+  width: 220px;
+  height: 220px;
+  perspective: 1000px;
+}
+.battleCommand-card-container .battleCommand-card {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 3px solid white;
   box-shadow: inset 0 0 70px black;
   text-align: center;
   color: white;
   text-shadow: 0 0 10px white;
-  transition: margin-bottom 235ms ease-in-out 0s;
+  transition: all 0.15s ease-in-out 0s;
+  z-index: 10;
 }
-.battleCommand-card:hover {
-  border: 3px solid rgb(218, 165, 68);
-  transform: scale(1.2);
-  transition: transform 0.2s;
+.battleCommand-card-container .battleCommand-card:hover {
+  z-index: 20;
 }
-.battleCommand-card span {
+.battleCommand-card-container .glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.15s ease-in-out 0s;
+  border-radius: 12px;
+  mix-blend-mode: hard-light;
+  background: radial-gradient(circle at 50% 0%, rgb(184, 196, 211), transparent);
+}
+.battleCommand-card-container span {
   font-family: "Cinzel", serif;
   font-size: 14px;
   font-weight: 500;
 }
-.battleCommand-card .cardTitle-symbol {
+.battleCommand-card-container .cardTitle-symbol {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -984,7 +1004,7 @@ h3 {
   padding: 2px 3px;
   display: flex;
 }
-.battleCommand-card .cardTitle-symbol .symbol {
+.battleCommand-card-container .cardTitle-symbol .symbol {
   background: rgba(230, 229, 229, 0.8);
   border: 2px solid rgb(218, 165, 68);
   box-shadow: inset 0 0 5px black;
@@ -995,30 +1015,30 @@ h3 {
   justify-content: center;
   align-items: center;
 }
-.battleCommand-card .cardTitle-symbol .symbol img {
+.battleCommand-card-container .cardTitle-symbol .symbol img {
   width: 18px;
 }
-.battleCommand-card .cardTitle-symbol h4 {
+.battleCommand-card-container .cardTitle-symbol h4 {
   margin: 5px 0 5px 0;
   font-family: "Cinzel", serif;
   font-size: 14px;
   font-weight: 800;
 }
-.battleCommand-card .damage-mainDamage,
-.battleCommand-card .damage-subDamage {
+.battleCommand-card-container .damage-mainDamage,
+.battleCommand-card-container .damage-subDamage {
   display: flex;
   flex-direction: column;
   margin: 5px 5px;
 }
-.battleCommand-card .cardResume {
+.battleCommand-card-container .cardResume {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 40px;
   padding: 0 3px;
 }
-.battleCommand-card .cardResume .damage,
-.battleCommand-card .cardResume .cost {
+.battleCommand-card-container .cardResume .damage,
+.battleCommand-card-container .cardResume .cost {
   margin-top: 5px;
   display: flex;
   flex-direction: column;
@@ -1036,7 +1056,7 @@ h3 {
   background: rgba(230, 229, 229, 0.8);
   text-shadow: 0 0 10px white;
 }
-.battleCommand-card .cardResume .effect {
+.battleCommand-card-container .cardResume .effect {
   margin-top: 5px;
   display: flex;
   flex-direction: column;
@@ -1115,6 +1135,27 @@ h3 {
 .darkness .damage,
 .darkness .cost {
   color: rgb(59, 48, 77);
+}
+
+.battleCommand {
+  height: 50px;
+  width: 90px;
+  background: rgba(255, 0, 0, 0.6941176471);
+  font-family: "Cinzel", serif;
+  color: white;
+  border: 3px solid white;
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.battleCommand .battleCommand-action {
+  font-size: 20px;
+  font-weight: 200;
+}
+.battleCommand .battleCommand-counter img {
+  width: 25px;
 }
 
 #root {

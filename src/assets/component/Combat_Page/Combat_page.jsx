@@ -1,7 +1,9 @@
 import Cards from "../Objet/Cards/Cards";
 import { useState, useEffect } from "react";
 import targetImg from "../../images/target.png";
-import playerSprites from "../../images/playerSprites.png";
+// import playerSprites from "../../images/playerSprites.png";
+import { cardsDeck, shuffleArray } from "../../data/cards";
+import Button_shuffle from "../Objet/Button_Shuffle/Button_shuffle";
 
 function Combat_page() {
   const MAX_LIFE = 100; // Vie maximale des adversaires
@@ -13,68 +15,27 @@ function Combat_page() {
   const [target, setTarget] = useState(null);
   const [texteCombat, setTexteCombat] = useState();
   const [hidden, setHidden] = useState(true);
-  const [cards, setCards] = useState([
-    {
-      id: 1,
-      nameCard: "Lance de glace",
-      backgroundElement: "cold",
-      element: "cold",
-      attribut: "physical",
-      mainDamageType: "Dégât de Froid",
-      mainDamage: 3,
-      subDamageType: "Dégât Physique",
-      subDamage: 1,
-      effect1: "Gel",
-      effect2: null,
-      cost: 2,
-    },
-    {
-      id: 2,
-      nameCard: "Brise-Âme",
-      backgroundElement: "darkness",
-      element: "darkness",
-      attribut: "magical",
-      mainDamageType: "Dégât de Malice",
-      mainDamage: 3,
-      subDamageType: "Dégât Magique",
-      subDamage: 3,
-      effect1: "Peur",
-      effect2: null,
-      cost: 2,
-    },
-    {
-      id: 3,
-      nameCard: "Entaille",
-      backgroundElement: "physical",
-      element: "physical",
-      attribut: "physical",
-      mainDamageType: "Dégât Physique",
-      mainDamage: 3,
-      subDamageType: "-",
-      subDamage: "-",
-      effect1: null,
-      effect2: null,
-      cost: 2,
-    },
-    {
-      id: 4,
-      nameCard: "Transper'Ciel",
-      backgroundElement: "electric",
-      element: "electric",
-      attribut: "magical",
-      mainDamageType: "Dégât de Foudre",
-      mainDamage: 5,
-      subDamageType: "Dégât de Feu",
-      subDamage: 2,
-      effect1: "Paralyse",
-      effect2: "Enflamme",
-      cost: 2,
-    },
-  ]);
+  const [isActive, setIsActive] = useState(true);
+
+  // État pour stocker les cartes affichées
+  const [displayedCards, setDisplayedCards] = useState([]);
+
+  useEffect(() => {
+    // Mélanger le tableau de cartes et sélectionner les 4 premières
+    const shuffledCards = shuffleArray(cardsDeck);
+    setDisplayedCards(shuffledCards.slice(0, 4));
+  }, []);
 
   const handleCardClick = (card) => {
     setSelectedCard(card);
+    setTarget(null);
     setHidden(false);
+  };
+
+  const handleActionButtonClick = () => {
+    setIsActive(false);
+    const shuffledCards = shuffleArray(cardsDeck);
+    setDisplayedCards(shuffledCards.slice(0, 4));
   };
 
   const handleAttack = () => {
@@ -100,6 +61,7 @@ function Combat_page() {
       setSelectedCard(null);
       setTarget(null);
       setHidden(true);
+      setIsActive(false);
     }
   };
   const handleFoeClick = (foe) => {
@@ -182,11 +144,19 @@ function Combat_page() {
         </div>
       </div>
       <div className="combatPage-battleCommand-container">
-        <div className="battleCommand-wrapper-left"></div>
-        <div className="battleCommand-wrapper-center">
-          {cards.map((card) => (
+        <div className="battleCommand-wrapper-left">
+          <div className="battleCommand first"> Charge: 4/4 </div>
+          <Button_shuffle
+            action="Shuffle"
+            nameClass="second"
+            onClick={handleActionButtonClick}
+          />
+          <div className="battleCommand third">Voir deck</div>
+        </div>
+        <div className="battleCommand-wrapper-center"> 
+          {displayedCards.map((card, index) => (
             <Cards
-              key={card.id}
+              key={`${card.id}-${index}`}
               {...card}
               isHovered={hoveredCardId === card.id}
               onClick={() => handleCardClick(card)}
@@ -195,7 +165,6 @@ function Combat_page() {
             />
           ))}
         </div>
-        <div className="battleCommand-wrapper-right"></div>
       </div>
     </div>
   );

@@ -1,0 +1,23 @@
+.battleCommand {
+  height: 50px;
+  width: 90px;
+  background: $blood-color;
+  font-family: $text-font-2;
+
+  color: $secondary-color;
+  border: 3px solid $secondary-color;
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  .battleCommand-action {
+    font-size: 20px;
+    font-weight: 200;
+  }
+  .battleCommand-counter {
+    img {
+      width: 25px;
+    }
+  }
+}

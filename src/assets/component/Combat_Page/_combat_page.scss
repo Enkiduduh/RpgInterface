@@ -176,10 +176,15 @@
   display: flex;
   justify-content: space-between;
   .battleCommand-wrapper-left {
-    width: 200px;
-    // background: yellow;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
   }
   .battleCommand-wrapper-center {
+    width:100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
