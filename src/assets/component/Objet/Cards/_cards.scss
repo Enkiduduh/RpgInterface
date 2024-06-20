@@ -1,10 +1,24 @@
 .battleCommand-card-container {
-  width: 220px;
-  height: 220px;
-  perspective: 1000px;
+  width: 165px;
+  height: 222px;
+  perspective: 400px;
+  z-index: 1;
+  transition: transform 0.1s ease;
+  position:relative;
+  display: flex;
+  align-items: center;
+  transform: rotateY(180deg);
+  &:hover {
+    transform: translateY(-50px) scale(1.5);
+    transition: transform 01s ease;
+
+    z-index: 20;
+
+  }
   .battleCommand-card {
-    width: 100%;
-    height: 100%;
+    width: 165px;
+    height: 218px;
+    position: absolute;
     // margin: 20px;
     overflow: hidden;
     border-radius: 12px;
@@ -14,104 +28,116 @@
     color: $secondary-color;
     text-shadow: 0 0 10px $secondary-color;
     transition: all 0.15s ease-in-out 0s;
-    z-index: 10;
-
-    &:hover {
-      // border: 3px solid $primary-color;
-      // transform: translateY(-50px) scale(1.2);
-      // transition: transform 0.2s;
-      z-index: 20;
-    }
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    backface-visibility: hidden;
+  }
+  .battleCommand-card-flipped {
+    position: absolute;
+    width: 165px;
+    height: 218px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 3px solid $secondary-color;
+    box-shadow: inset 0 0 5px $secondary-color;
+    border-radius: 10px;
+    transition: all 0.15s ease-in-out 0s;
   }
   .glow {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 170px;
+    height: 220px;
     transition: all 0.15s ease-in-out 0s;
     border-radius: 12px;
-    mix-blend-mode: hard-light;
+    mix-blend-mode: soft-light;
     background: radial-gradient(
       circle at 50% 0%,
       rgb(184, 196, 211),
       transparent
     );
+    pointer-events: none;
   }
-    span {
+
+  span {
+    font-family: $text-font-2;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .cardTitle-symbol {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+    padding: 2px 3px;
+    display: flex;
+    .symbol {
+      background: rgba(230, 229, 229, 0.8);
+      border: 2px solid $primary-color;
+      box-shadow: inset 0 0 5px $tertiary-color;
+      border-radius: 20px;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 18px;
+      }
+    }
+    h4 {
+      margin: 5px 0 5px 0;
       font-family: $text-font-2;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 800;
     }
-    .cardTitle-symbol {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 35px;
-      padding: 2px 3px;
-      display: flex;
-      .symbol {
-        background: rgba(230, 229, 229, 0.8);
-        border: 2px solid $primary-color;
-        box-shadow: inset 0 0 5px $tertiary-color;
-        border-radius: 20px;
-        width: 22px;
-        height: 22px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img {
-          width: 18px;
-        }
-      }
-      h4 {
-        margin: 5px 0 5px 0;
-        font-family: $text-font-2;
-        font-size: 14px;
-        font-weight: 800;
-      }
-    }
+  }
 
-    .damage-mainDamage,
-    .damage-subDamage {
+  .damage-mainDamage,
+  .damage-subDamage {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 5px;
+  }
+  .cardResume {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    padding: 0 3px;
+    .damage,
+    .cost {
+      margin-top: 5px;
       display: flex;
       flex-direction: column;
-      margin: 5px 5px;
-    }
-    .cardResume {
+      border: 2px solid $primary-color;
+      box-shadow: inset 0 0 5px $tertiary-color;
+      border-radius: 30px;
+      width: 22px;
+      height: 22px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      height: 40px;
-      padding: 0 3px;
-      .damage,
-      .cost {
-        margin-top: 5px;
-        display: flex;
-        flex-direction: column;
-        border: 2px solid $primary-color;
-        box-shadow: inset 0 0 5px $tertiary-color;
-        border-radius: 30px;
-        width: 22px;
-        height: 22px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: $text-font-2;
-        font-size: 16px;
-        font-weight: 800;
-        // color: black;
-        background: rgba(230, 229, 229, 0.8);
-        text-shadow: 0 0 10px $secondary-color;
-      }
-      .effect {
-        margin-top: 5px;
-        display: flex;
-        flex-direction: column;
-        padding: 0 10px;
-      }
+      font-family: $text-font-2;
+      font-size: 16px;
+      font-weight: 800;
+      // color: black;
+      background: rgba(230, 229, 229, 0.8);
+      text-shadow: 0 0 10px $secondary-color;
     }
-
+    .effect {
+      margin-top: 5px;
+      display: flex;
+      flex-direction: column;
+      padding: 0 10px;
+    }
+  }
 }
 .lineCard {
   width: 150px;

@@ -780,11 +780,8 @@ h3 {
 
 .combatPage-container {
   width: 1100px;
-  height: 620px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 .combatPage-container .combatPage-CombatText-container {
   width: 1095px;
@@ -799,63 +796,56 @@ h3 {
 }
 .combatPage-container .combatPage-battleScreen-container {
   width: 1100px;
-  height: 330px;
-  background: rgb(241, 220, 193);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper {
-  width: 350px;
-  height: 300px;
-  margin: 0 auto;
-}
 .combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img-container {
-  background: white;
+  width: 500px;
   height: 250px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img-container .opponent-img-wrapper {
-  width: 100px;
   height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 .combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img-container .opponent-img-wrapper .opponentLife-container {
-  border: 3px solid black;
-  width: 95px;
+  border: 3px solid white;
+  width: 195px;
   height: 20px;
-  background: white;
   text-align: center;
+  position: relative;
 }
 .combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img-container .opponent-img-wrapper .opponentLife-container .opponentLife {
   background: blue;
+  width: 195px;
   height: 20px;
+  font-size: 17px;
+  text-align: center;
+}
+.combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img-container .opponent-img-wrapper .opponentLife-container .opponentLife-value {
+  font-size: 17px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 70px;
   color: white;
+  font-family: "Cinzel", serif;
+  font-weight: 500;
 }
 .combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img-container .opponent-img-wrapper .opponentImg {
-  background: rgb(209, 211, 209);
-  width: 140px;
-  height: 164px;
-  background-image: url("../../images/playerSprites.png");
-  background-size: cover;
-  animation-name: marche;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: steps(5);
-  margin: 0 auto;
+  width: 200px;
+  height: 180px;
   transform: scaleX(-1);
-}
-@keyframes marche {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -1200px 0;
-  }
+  display: flex;
+  justify-content: center;
 }
 .combatPage-container .combatPage-battleScreen-container .battleScreen-opponent-wrapper .battleScreen-opponent-img-container .opponent-img-wrapper .targetFoe {
   width: 100%;
@@ -870,52 +860,34 @@ h3 {
   height: 50px;
 }
 .combatPage-container .battleScreen-player-wrapper {
-  width: 350px;
+  width: 400px;
   height: 300px;
-  margin: 0 auto;
 }
 .combatPage-container .battleScreen-player-wrapper .battleScreen-player-img-container {
   height: 250px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: white;
-}
-.combatPage-container .battleScreen-player-wrapper .battleScreen-player-img-container .player-img-wrapper {
-  width: 100px;
-  height: 170px;
 }
 .combatPage-container .battleScreen-player-wrapper .battleScreen-player-img-container .player-img-wrapper .playerLife-container {
-  border: 3px solid black;
-  width: 95px;
+  border: 3px solid white;
+  width: 200px;
   height: 20px;
-  margin-bottom: 10px;
-  background: white;
+  margin: 18px auto 38px auto;
 }
 .combatPage-container .battleScreen-player-wrapper .battleScreen-player-img-container .player-img-wrapper .playerLife-container .playerLife {
-  background: blue;
-  width: 100%;
+  background: rgb(11, 124, 30);
+  width: 200px;
   height: 20px;
+  color: white;
+  font-family: "Cinzel", serif;
+  font-size: 17px;
+  text-align: center;
 }
 .combatPage-container .battleScreen-player-wrapper .battleScreen-player-img-container .player-img-wrapper .playerImg {
-  background: rgb(209, 211, 209);
-  width: 200px;
-  height: 164px;
-  background-image: url("../../images/playerSprites.png");
-  background-size: cover;
-  animation-name: marche;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: steps(5);
-  margin: 0 auto;
-}
-@keyframes marche {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -1200px 0;
-  }
+  height: 150px;
+  transform: scaleX(-1);
+  display: flex;
+  justify-content: center;
 }
 .combatPage-container .battleScreen-player-wrapper .battleScreen-player-img {
   background: yellow;
@@ -935,14 +907,15 @@ h3 {
 }
 
 .combatPage-battleCommand-container {
-  width: 1100px;
-  height: 270px;
-  background: rgb(0, 0, 0);
+  width: 1081px;
+  height: 300px;
+  border: 10px solid black;
   display: flex;
   justify-content: space-between;
+  box-shadow: inset 0 0 40px white;
 }
 .combatPage-battleCommand-container .battleCommand-wrapper-left {
-  width: 150px;
+  width: 140px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -951,22 +924,31 @@ h3 {
 .combatPage-battleCommand-container .battleCommand-wrapper-center {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   position: relative;
 }
-.combatPage-battleCommand-container .battleCommand-wrapper-right {
-  width: 200px;
-}
 
 .battleCommand-card-container {
-  width: 220px;
-  height: 220px;
-  perspective: 1000px;
+  width: 165px;
+  height: 222px;
+  perspective: 400px;
+  z-index: 1;
+  transition: transform 0.1s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  transform: rotateY(180deg);
+}
+.battleCommand-card-container:hover {
+  transform: translateY(-50px) scale(1.5);
+  transition: transform 1s ease;
+  z-index: 20;
 }
 .battleCommand-card-container .battleCommand-card {
-  width: 100%;
-  height: 100%;
+  width: 165px;
+  height: 218px;
+  position: absolute;
   overflow: hidden;
   border-radius: 12px;
   border: 3px solid white;
@@ -975,21 +957,36 @@ h3 {
   color: white;
   text-shadow: 0 0 10px white;
   transition: all 0.15s ease-in-out 0s;
-  z-index: 10;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  backface-visibility: hidden;
 }
-.battleCommand-card-container .battleCommand-card:hover {
-  z-index: 20;
+.battleCommand-card-container .battleCommand-card-flipped {
+  position: absolute;
+  width: 165px;
+  height: 218px;
+  backface-visibility: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 3px solid white;
+  box-shadow: inset 0 0 5px white;
+  border-radius: 10px;
+  transition: all 0.15s ease-in-out 0s;
 }
 .battleCommand-card-container .glow {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 170px;
+  height: 220px;
   transition: all 0.15s ease-in-out 0s;
   border-radius: 12px;
-  mix-blend-mode: hard-light;
+  mix-blend-mode: soft-light;
   background: radial-gradient(circle at 50% 0%, rgb(184, 196, 211), transparent);
+  pointer-events: none;
 }
 .battleCommand-card-container span {
   font-family: "Cinzel", serif;

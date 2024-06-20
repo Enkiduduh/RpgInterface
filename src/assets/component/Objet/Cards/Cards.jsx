@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react";
+import CardBack from "../../../images/cardBack.png";
 // import "./Cards.scss";
 
 function Cards({
@@ -20,6 +21,7 @@ function Cards({
   onMouseEnter,
   onMouseLeave,
   isHovered,
+  isBackFlipped,
 }) {
   const cardRef = useRef(null);
 
@@ -68,51 +70,77 @@ function Cards({
   damageInflicted = mainDamage + subDamage;
 
   return (
-    <div className="battleCommand-card-container" ref={cardRef}>
-      <div
-        className={`battleCommand-card ${backgroundElement} ${
-          isHovered ? "hovered" : ""
-        }`}
-        key={id}
-        value={nameCard}
-        onClick={onClick}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-      >
-        <div className="cardTitle-symbol">
-          <span className="symbol">
-            <img src={`./images/Attributs/${attribut}.png`} alt={attribut} />
-          </span>
-          <h4>{nameCard}</h4>
-          <span className="symbol">
-            <img
-              src={`./images/Elemental_Cards/${element}.png`}
-              alt={element}
-            />
-          </span>
-        </div>
-        <div className="lineCard"></div>
-        <div className="damage-mainDamage">
-          <span>{mainDamageType}</span>
-          <span>{mainDamage}</span>
-        </div>
-        <div className="lineCard"></div>
-        <div className="damage-subDamage">
-          <span>{subDamageType || "-"}</span>
-          <span>{subDamage || "-"}</span>
-        </div>
-        <div className="lineCard"></div>
-        <div className="cardResume">
-          <div className={`damage ${backgroundElement}`}>{damageInflicted}</div>
-          <div className="effect">
-            <span>{effect1 || "-"}</span>
-            <span>{effect2 || "-"}</span>
-          </div>
-          <div className={`cost ${backgroundElement}`}>{cost}</div>
-        </div>
+    <>
+      <div className="battleCommand-card-container" ref={cardRef}>
+        {isBackFlipped ? (
+          <>
+            <div
+              className={`battleCommand-card ${backgroundElement} ${
+                isHovered ? "hovered" : ""
+              }`}
+              key={id}
+              value={nameCard}
+              onClick={onClick}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            >
+              <div className="cardTitle-symbol">
+                <span className="symbol">
+                  <img
+                    src={`./images/Attributs/${attribut}.png`}
+                    alt={attribut}
+                  />
+                </span>
+                <h4>{nameCard}</h4>
+                <span className="symbol">
+                  <img
+                    src={`./images/Elemental_Cards/${element}.png`}
+                    alt={element}
+                  />
+                </span>
+              </div>
+              <div className="lineCard"></div>
+              <div className="damage-mainDamage">
+                <span>{mainDamageType}</span>
+                <span>{mainDamage}</span>
+              </div>
+              <div className="lineCard"></div>
+              <div className="damage-subDamage">
+                <span>{subDamageType || "-"}</span>
+                <span>{subDamage || "-"}</span>
+              </div>
+              <div className="lineCard"></div>
+              <div className="cardResume">
+                <div className={`damage ${backgroundElement}`}>
+                  {damageInflicted}
+                </div>
+                <div className="effect">
+                  <span>{effect1 || "-"}</span>
+                  <span>{effect2 || "-"}</span>
+                </div>
+                <div className={`cost ${backgroundElement}`}>{cost}</div>
+              </div>
+            </div>
+            <div className="glow"></div>
+          </>
+        ) : (
+          <>
+            <div
+              className={`battleCommand-card-flipped ${backgroundElement} ${
+                isHovered ? "hovered" : ""
+              }`}
+              key={id}
+              value={nameCard}
+              onClick={onClick}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              style={{ backgroundImage: `url(${CardBack})` }}
+            ></div>
+            <div className="glow"></div>
+          </>
+        )}
       </div>
-      <div className="glow"></div>
-    </div>
+    </>
   );
 }
 
