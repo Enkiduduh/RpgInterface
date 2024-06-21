@@ -35,55 +35,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .opponent-img-wrapper {
-          height: 250px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-evenly;
-          .opponentLife-container {
-            border: 3px solid $secondary-color;
-            width: 195px;
-            height: 20px;
-            text-align: center;
-            position:relative;
-            .opponentLife {
-              background: blue;
-              width: 195px;
-              height: 20px;
-              font-size: 17px;
-              text-align: center;
 
-            }
-            .opponentLife-value {
-              font-size: 17px;
-              text-align: center;
-              position:absolute;
-              top:0;
-              left: 70px;
-              color: $secondary-color;
-              font-family: $text-font-2;
-              font-weight: 500;
-            }
-          }
-          .opponentImg {
-            // background: rgb(209, 211, 209);
-            width: 200px;
-            height: 180px;
-            transform: scaleX(-1);
-            display: flex;
-            justify-content: center;
-          }
-
-          .targetFoe {
-            width: 100%;
-            height: 32px;
-            text-align: center;
-            // margin: 15px 0;
-            img {
-              width: 30px;
-            }
-          }
-        }
       }
     }
     .battleScreen-opponent-infos {
@@ -94,15 +46,17 @@
   .battleScreen-player-wrapper {
     width: 400px;
     height: 300px;
-    // background: $blood-color;
 
     .battleScreen-player-img-container {
+      width: 300px;
       height: 250px;
       display: flex;
       align-items: center;
-      // background: $secondary-color;
 
       .player-img-wrapper {
+        position:relative;
+        margin: 0 auto;
+        z-index: 99;
         .playerLife-container {
           border: 3px solid $secondary-color;
           width: 200px;
@@ -119,11 +73,48 @@
           }
         }
         .playerImg {
-          // width: 200px;
           height: 150px;
           transform: scaleX(-1);
           display: flex;
           justify-content: center;
+          width: 200px;
+          transition: all ease 0.1s;
+          margin-left: 0px;
+          z-index: 100;
+          .attacking1 {
+            transition: all ease 0.1s;
+            margin-left: -450px;
+            z-index: 99;
+          }
+          .attacking2 {
+            transition: all ease 0.1s;
+            margin-left: -1050px;
+            z-index: 99;
+          }
+          .playerEffects {
+            position: absolute;
+            z-index: 99;
+            right:28px;
+            bottom:-20px;
+            width: 128px;
+            height: 128px;
+            // border: 1px solid red;
+            transform: scaleX(-1);
+            background-image: url("../../../../public/images/playerMovesToAttack2.png");
+            background-repeat: no-repeat;
+            background-position:center ;
+            background-size: cover;
+            animation-name: playerMoves;
+            animation-duration: 0.8s;
+            animation-timing-function: steps(9);
+          }
+          @keyframes playerMoves {
+            from { background-position: 0 0; }
+            to { background-position: -1440px 0; }
+          }
+        }
+        .hiddenAnim {
+          display: none;
         }
       }
     }
@@ -152,13 +143,14 @@
   border: 10px solid $tertiary-color;
   display: flex;
   justify-content: space-between;
-  box-shadow: inset 0 0 40px $secondary-color;
+  box-shadow: inset 0 0 70px rgb(0, 60, 80);
   .battleCommand-wrapper-left {
     width: 140px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+
   }
   .battleCommand-wrapper-center {
     width: 100%;

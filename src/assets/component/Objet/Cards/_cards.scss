@@ -2,24 +2,24 @@
   width: 165px;
   height: 222px;
   perspective: 400px;
-  z-index: 1;
+
   transition: transform 0.1s ease;
-  position:relative;
+  position: relative;
   display: flex;
   align-items: center;
-  transform: rotateY(180deg);
   &:hover {
     transform: translateY(-50px) scale(1.5);
-    transition: transform 01s ease;
-
-    z-index: 20;
+    transition: transform 1s ease;
+    z-index: 151;
 
   }
-  .battleCommand-card {
+  .battleCommand-card
+ {
     width: 165px;
     height: 218px;
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
     position: absolute;
-    // margin: 20px;
     overflow: hidden;
     border-radius: 12px;
     border: 3px solid $secondary-color;
@@ -27,42 +27,30 @@
     text-align: center;
     color: $secondary-color;
     text-shadow: 0 0 10px $secondary-color;
-    transition: all 0.15s ease-in-out 0s;
-    z-index: 2;
+    transition: all 0.3s ease-in-out 0s;
+    // z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    backface-visibility: hidden;
+
   }
-  .battleCommand-card-flipped {
-    position: absolute;
-    width: 165px;
-    height: 218px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: 3px solid $secondary-color;
-    box-shadow: inset 0 0 5px $secondary-color;
-    border-radius: 10px;
-    transition: all 0.15s ease-in-out 0s;
-  }
+
   .glow {
     position: absolute;
     top: 0;
     left: 0;
     width: 170px;
     height: 220px;
-    transition: all 0.15s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
     border-radius: 12px;
-    mix-blend-mode: soft-light;
+    mix-blend-mode: hard-light;
     background: radial-gradient(
       circle at 50% 0%,
       rgb(184, 196, 211),
       transparent
     );
     pointer-events: none;
+
   }
 
   span {
@@ -216,16 +204,65 @@
   }
 }
 
-// .battleCommand-card-hover {
-//   transition: 1s ease-in-out top;
-//   position: absolute;
-//   top: -100px;
-//   height: 190px;
-//   margin: 20px;
-//   border-radius: 5px;
-//   border: 2px solid $secondary-color;
-//   box-shadow: inset 0 0 70px $tertiary-color;
-//   text-align: center;
-//   color: $secondary-color;
-//   text-shadow: 0 0 10px $secondary-color;
+// .battleCommand-card-container {
+//   width: 165px;
+//   height: 222px;
+//   perspective: 400px;
+//   z-index: 1;
+//   transition: transform 0.1s ease;
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   &:hover {
+//     transform: translateY(-50px) scale(1.5);
+//     transition: transform 1s ease;
+//     z-index: 20;
+//     &.flipped {
+//       transform: rotateY(180deg);
+//     }
+//   }
+//   .battleCommand-card,
+//   .battleCommand-card-flipped {
+//     width: 165px;
+//     height: 218px;
+//     position: absolute;
+//     overflow: hidden;
+//     border-radius: 12px;
+//     border: 3px solid $secondary-color;
+//     box-shadow: inset 0 0 70px $tertiary-color;
+//     text-align: center;
+//     color: $secondary-color;
+//     text-shadow: 0 0 10px $secondary-color;
+//     transition: all 0.3s ease-in-out 0s;
+//     z-index: 2;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-evenly;
+//     -webkit-backface-visibility: hidden;
+//     backface-visibility: hidden;
+//   }
+//   .battleCommand-card {
+//     z-index: 2;
+//     transform: rotateY(180deg);
+//   }
+//   .battleCommand-card-flipped {
+//     box-shadow: inset 0 0 70px $secondary-color;
+//   }
+//   .glow {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 170px;
+//     height: 220px;
+//     transition: all 0.3s ease-in-out 0s;
+//     border-radius: 12px;
+//     mix-blend-mode:hard-light;
+//     background: radial-gradient(
+//       circle at 50% 0%,
+//       rgb(184, 196, 211),
+//       transparent
+//     );
+//     pointer-events: none;
+//     z-index: 1;
+//   }
 // }
