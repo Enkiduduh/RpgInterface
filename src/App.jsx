@@ -6,7 +6,7 @@ import NotFound from "./assets/component/NotFound/Notfound";
 import MainMenu from "./assets/component/Main_Menu/Main_menu";
 import "./App.css";
 import Combat_page from "./assets/component/Combat_Page/Combat_page";
-Combat_page
+import Rts_screen from "./assets/component/Rts_Screen/Rts_screen";
 
 function App() {
   return (
@@ -16,7 +16,8 @@ function App() {
         <Route path="/new" element={<New_char />} />
         <Route path="/charsList" element={<Chars_List />} />
         <Route path="/char/:id" element={<Char_page />} />
-        <Route path="/combat" element={<Combat_page/>} />
+        <Route path="/combat" element={<Combat_page />} />
+        <Route path="/rts-screen" element={<Rts_screen />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
