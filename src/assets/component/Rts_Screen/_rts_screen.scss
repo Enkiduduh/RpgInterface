@@ -4,6 +4,7 @@
   height: 100vh;
   background-color: gray;
   user-select: none;
+  overflow: hidden;
 }
 
 .obj {
@@ -11,7 +12,6 @@
   width: 50px;
   height: 50px;
   background-color: transparent;
-  // border: 2px solid cyan;
   color: white;
   display: flex;
   align-items: center;
@@ -37,7 +37,7 @@
     width: 34px;
     height: 34px;
   }
-  .soldierWalkImg {
+  .soldierWalkImgRight {
     background-image: url("./assets/images/rts/soldier_walk.png");
     background-size: cover;
     background-position: center;
@@ -56,6 +56,19 @@
     to {
       background-position: -204px 0;
     }
+  }
+  .soldierWalkImgLeft {
+    background-image: url("./assets/images/rts/soldier_walk.png");
+    background-size: cover;
+    background-position: center;
+    width: 34px;
+    height: 34px;
+    background-repeat: no-repeat;
+    animation-name: playerMoves;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(6);
+    transform: scaleX(-1);
   }
 }
 
@@ -79,10 +92,10 @@
   position: relative;
   top: 250px;
   left: 850px;
-  width: 250px;
-  height: 250px;
+  width: 350px;
+  height: 350px;
   border: 3px solid red;
-  border-radius: 150px;
+  border-radius: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,7 +115,7 @@
     }
     .target-lifebar-container {
       position: absolute;
-      top: 80px;
+      top: 130px;
       width: 150px;
       height: 8px;
       background-color: white;
@@ -117,12 +130,47 @@
 }
 .panel-command {
   position: absolute;
-  width: 500px;
+  width: 600px;
   height: 200px;
   background: black;
-  bottom: 0;
+  bottom: 30px;
   left: 0px;
+  border: 5px solid white;
+  .infoUnit {
+    width: 140px;
+    height: 178px;
+    border: 2px solid blue;
+    margin: 10px;
+
+    .portraitUnit {
+      width: 120px;
+      height: 120px;
+      border: 2px solid blue;
+      margin: 10px auto;
+      img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+    .portraitLife {
+      width: 118px;
+      height: 8px;
+      background-color: white;
+      border: 2px solid black;
+      margin: 10px auto;
+      .life {
+        height: 8px;
+        background-color: rgb(44, 120, 60);
+      }
+      .name {
+        color: white;
+        text-align: center;
+      }
+    }
+  }
 }
+
+
 
 // { id: 1, x: 50, y: 50 },
 // { id: 2, x: 150, y: 150 },
@@ -132,14 +180,3 @@
 // { id: 6, x: 100, y: 200 },
 // { id: 7, x: 50, y: 250 },
 // { id: 8, x: 250, y: 450 },
-
-// <div className="target-container">
-// <div className="target">
-//   <span>Target</span>
-// </div>
-// </div>
-// <div className="panel-command">
-// <div className="command attack"></div>
-// <div className="command stop"></div>
-// <div className="command regroup"></div>
-// </div>

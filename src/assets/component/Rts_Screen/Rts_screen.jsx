@@ -1,19 +1,46 @@
 import React, { useState, useRef, useEffect } from "react";
-import soldier from "../../images/rts/soldier_idle.png";
+// import { soldiers } from "./Soldiers";
+// import img from '../../images/rts/soldier_portrait.png'
+
 function App() {
   const [selected, setSelected] = useState([]);
   const [selectionBox, setSelectionBox] = useState(null);
   const [destinations, setDestinations] = useState({});
-  const [isMoving, setIsMoving] = useState(false);
+  const [selectedObject, setSelectedObject] = useState(null);
   const [divs, setDivs] = useState([
-    { id: 1, x: 50, y: 50, isMoving: false },
-    { id: 2, x: 150, y: 150, isMoving: false },
-    { id: 3, x: 250, y: 250, isMoving: false },
-    { id: 4, x: 350, y: 350, isMoving: false },
-    { id: 5, x: 450, y: 450, isMoving: false },
-    { id: 6, x: 100, y: 200, isMoving: false },
-    { id: 7, x: 50, y: 250, isMoving: false },
-    { id: 8, x: 250, y: 450, isMoving: false },
+    {
+      id: 1,
+      x: 50,
+      y: 50,
+      isMoving: false,
+      isMovingLeft: false,
+      type: "Sergent",
+      damage: 10,
+      life: 100,
+      portrait: "src/assets/images/rts/soldier_portrait.png",
+    },
+    {
+      id: 2,
+      x: 150,
+      y: 150,
+      isMoving: false,
+      isMovingLeft: false,
+      type: "Soldier",
+      damage: 5,
+      life: 100,
+      portrait: "src/assets/images/rts/soldier_portrait.png",
+    },
+    {
+      id: 3,
+      x: 250,
+      y: 250,
+      isMoving: false,
+      isMovingLeft: false,
+      type: "Soldier",
+      damage: 5,
+      life: 100,
+      portrait: "src/assets/images/rts/soldier_portrait.png",
+    },
   ]);
   const containerRef = useRef(null);
 
@@ -101,7 +128,7 @@ function App() {
       setDivs((prevDivs) => {
         return prevDivs.map((div) => {
           const dest = destinations[div.id];
-          if (!dest) return  { ...div, isMoving: false };
+          if (!dest) return { ...div, isMoving: false };
 
           const dx = dest.x - div.x - 25;
           const dy = dest.y - div.y - 25;
@@ -113,10 +140,12 @@ function App() {
           const speed = Math.min(dist, 2); // vitesse de déplacement
           const newX = div.x + Math.cos(angle) * speed;
           const newY = div.y + Math.sin(angle) * speed;
+          const isMovingLeft = dx < 0;
 
-          const movingDiv = { ...div, x: newX, y: newY , isMoving: true};
-          setIsMoving(true);
-          return avoidCollision(movingDiv, prevDivs);
+          return avoidCollision(
+            { ...div, x: newX, y: newY, isMoving: true, isMovingLeft },
+            prevDivs
+          );
         });
       });
     }, 20);
@@ -128,8 +157,11 @@ function App() {
     e.stopPropagation();
     setSelected((prevSelected) => {
       if (prevSelected.includes(id)) {
+        setSelectedObject(null);
         return prevSelected.filter((selectedId) => selectedId !== id);
       } else {
+        const selectedObj = divs.find((div) => div.id === id);
+        setSelectedObject(selectedObj);
         return [...prevSelected, id];
       }
     });
@@ -158,7 +190,11 @@ function App() {
           {!div.isMoving ? (
             <div className="soldierIdleImg"></div>
           ) : (
-            <div className="soldierWalkImg"></div>
+            <div
+              className={
+                div.isMovingLeft ? "soldierWalkImgLeft" : "soldierWalkImgRight"
+              }
+            ></div>
           )}
           {/* <img src={soldier} alt="" /> */}
         </div>
@@ -190,9 +226,25 @@ function App() {
         </div>
       </div>
       <div className="panel-command">
-        <div className="command attack"></div>
-        <div className="command stop"></div>
-        <div className="command regroup"></div>
+        {selectedObject && (
+          <div className="infoUnit">
+            <div className="portraitUnit">
+              <img src={selectedObject.portrait} alt="Unit portrait" />
+            </div>
+            <div className="portraitLife">
+              <div
+                className="life"
+                style={{ width: `${selectedObject.life}%` }}
+              ></div>
+              <div className="name">{selectedObject.type} {selectedObject.id}</div>
+            </div>
+          </div>
+        )}
+        <div className="commands">
+          <div className="attack"></div>
+          <div className="stop"></div>
+          <div className="regroup"></div>
+        </div>
       </div>
     </div>
   );

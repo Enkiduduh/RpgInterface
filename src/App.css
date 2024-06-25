@@ -1270,6 +1270,7 @@ h3 {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  overflow: hidden;
 }
 
 .obj {
@@ -1303,7 +1304,7 @@ h3 {
   width: 34px;
   height: 34px;
 }
-.obj .soldierWalkImg {
+.obj .soldierWalkImgRight {
   background-image: url("./assets/images/rts/soldier_walk.png");
   background-size: cover;
   background-position: center;
@@ -1322,6 +1323,19 @@ h3 {
   to {
     background-position: -204px 0;
   }
+}
+.obj .soldierWalkImgLeft {
+  background-image: url("./assets/images/rts/soldier_walk.png");
+  background-size: cover;
+  background-position: center;
+  width: 34px;
+  height: 34px;
+  background-repeat: no-repeat;
+  animation-name: playerMoves;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(6);
+  transform: scaleX(-1);
 }
 
 .obj.selected {
@@ -1346,10 +1360,10 @@ h3 {
   position: relative;
   top: 250px;
   left: 850px;
-  width: 250px;
-  height: 250px;
+  width: 350px;
+  height: 350px;
   border: 3px solid red;
-  border-radius: 150px;
+  border-radius: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1371,7 +1385,7 @@ h3 {
 }
 .target-container .target .target-lifebar-container {
   position: absolute;
-  top: 80px;
+  top: 130px;
   width: 150px;
   height: 8px;
   background-color: white;
@@ -1385,11 +1399,43 @@ h3 {
 
 .panel-command {
   position: absolute;
-  width: 500px;
+  width: 600px;
   height: 200px;
   background: black;
-  bottom: 0;
+  bottom: 30px;
   left: 0px;
+  border: 5px solid white;
+}
+.panel-command .infoUnit {
+  width: 140px;
+  height: 178px;
+  border: 2px solid blue;
+  margin: 10px;
+}
+.panel-command .infoUnit .portraitUnit {
+  width: 120px;
+  height: 120px;
+  border: 2px solid blue;
+  margin: 10px auto;
+}
+.panel-command .infoUnit .portraitUnit img {
+  width: 120px;
+  height: 120px;
+}
+.panel-command .infoUnit .portraitLife {
+  width: 118px;
+  height: 8px;
+  background-color: white;
+  border: 2px solid black;
+  margin: 10px auto;
+}
+.panel-command .infoUnit .portraitLife .life {
+  height: 8px;
+  background-color: rgb(44, 120, 60);
+}
+.panel-command .infoUnit .portraitLife .name {
+  color: white;
+  text-align: center;
 }
 
 #root {
@@ -1400,6 +1446,7 @@ h3 {
 
 body {
   background: grey;
+  overflow: hidden;
 }
 
 .main-frame {
