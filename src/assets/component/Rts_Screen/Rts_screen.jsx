@@ -1,6 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-// import { soldiers } from "./Soldiers";
-// import img from '../../images/rts/soldier_portrait.png'
 
 function App() {
   const [selected, setSelected] = useState([]);
@@ -10,34 +8,49 @@ function App() {
   const [divs, setDivs] = useState([
     {
       id: 1,
-      x: 50,
+      x: 190,
       y: 50,
       isMoving: false,
       isMovingLeft: false,
-      type: "Sergent",
+      type: "SERGENT",
       damage: 10,
+      range: 10,
       life: 100,
-      portrait: "src/assets/images/rts/soldier_portrait.png",
+      portrait: "src/assets/images/rts/sergent_portrait.png",
     },
     {
       id: 2,
-      x: 150,
-      y: 150,
+      x: 240,
+      y: 30,
       isMoving: false,
       isMovingLeft: false,
-      type: "Soldier",
+      type: "MEDIC",
+      damage: 3,
+      range: 10,
+      life: 100,
+      portrait: "src/assets/images/rts/medic_portrait.png",
+    },
+    {
+      id: 3,
+      x: 350,
+      y: 70,
+      isMoving: false,
+      isMovingLeft: false,
+      type: "TROOPER",
       damage: 5,
+      range: 10,
       life: 100,
       portrait: "src/assets/images/rts/soldier_portrait.png",
     },
     {
-      id: 3,
+      id: 4,
       x: 250,
-      y: 250,
+      y: 100,
       isMoving: false,
       isMovingLeft: false,
-      type: "Soldier",
+      type: "TROOPER",
       damage: 5,
+      range: 10,
       life: 100,
       portrait: "src/assets/images/rts/soldier_portrait.png",
     },
@@ -157,15 +170,17 @@ function App() {
     e.stopPropagation();
     setSelected((prevSelected) => {
       if (prevSelected.includes(id)) {
-        setSelectedObject(null);
-        return prevSelected.filter((selectedId) => selectedId !== id);
+        const newSelected = prevSelected.filter((selectedId) => selectedId !== id);
+        setSelectedObject(newSelected.length === 1 ? divs.find((div) => div.id === newSelected[0]) : null);
+        return newSelected;
       } else {
-        const selectedObj = divs.find((div) => div.id === id);
-        setSelectedObject(selectedObj);
-        return [...prevSelected, id];
+        const newSelected = [...prevSelected, id];
+        setSelectedObject(newSelected.length === 1 ? divs.find((div) => div.id === id) : null);
+        return newSelected;
       }
     });
   };
+
 
   return (
     <div
@@ -186,7 +201,6 @@ function App() {
           <div className="lifebar-container">
             <div className="lifebar"></div>
           </div>
-          {/* obj.id({div.id}) */}
           {!div.isMoving ? (
             <div className="soldierIdleImg"></div>
           ) : (
@@ -196,9 +210,9 @@ function App() {
               }
             ></div>
           )}
-          {/* <img src={soldier} alt="" /> */}
         </div>
       ))}
+
       {selectionBox && (
         <div
           className="selection-box"
@@ -225,29 +239,73 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="panel-command">
-        {selectedObject && (
+
+      {selected.length === 1 && selectedObject && (
+        <div className="panel-command">
           <div className="infoUnit">
             <div className="portraitUnit">
               <img src={selectedObject.portrait} alt="Unit portrait" />
             </div>
             <div className="portraitLife">
-              <div
-                className="life"
-                style={{ width: `${selectedObject.life}%` }}
-              ></div>
-              <div className="name">{selectedObject.type} {selectedObject.id}</div>
+              <div className="life" style={{ width: `${selectedObject.life}%` }}></div>
+              <div className="name">
+                {selectedObject.type} {selectedObject.id}
+              </div>
             </div>
           </div>
-        )}
-        <div className="commands">
-          <div className="attack"></div>
-          <div className="stop"></div>
-          <div className="regroup"></div>
+
+          <div className="commands-container">
+            <div className="commands">
+              <div className="command move">Move</div>
+              <div className="command attack">Attack</div>
+              <div className="command stop">Stop</div>
+              <div className="command regroup">Regroup</div>
+            </div>
+            <div className="stats">
+              <div className="left">
+                <div className="stat health">
+                  Health : {selectedObject.life}
+                </div>
+                <div className="stat attack">
+                  Damage : {selectedObject.damage}
+                </div>
+              </div>
+              <div className="right">
+                <div className="stat type">
+                  Unit Type : {selectedObject.type}
+                </div>
+                <div className="stat range">
+                  Range : {selectedObject.range}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
+
+      {selected.length > 1 && (
+        <div className="panel-command">
+          {selected.map((id) => {
+            const obj = divs.find((div) => div.id === id);
+            return (
+              <div key={obj.id} className="infoUnit">
+                <div className="portraitUnit">
+                  <img src={obj.portrait} alt="Unit portrait" />
+                </div>
+                <div className="portraitLife">
+                  <div className="life" style={{ width: `${obj.life}%` }}></div>
+                  <div className="name">
+                    {obj.type} {obj.id}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
+
 }
 
 export default App;

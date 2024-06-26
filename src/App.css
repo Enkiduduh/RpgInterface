@@ -1271,12 +1271,15 @@ h3 {
      -moz-user-select: none;
           user-select: none;
   overflow: hidden;
+  background-image: url("./assets/images/rts/bg_01.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .obj {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   background-color: transparent;
   color: white;
   display: flex;
@@ -1301,15 +1304,15 @@ h3 {
   background-image: url("./assets/images/rts/soldier_idle.png");
   background-size: cover;
   background-position: center;
-  width: 34px;
-  height: 34px;
+  width: 68px;
+  height: 68px;
 }
 .obj .soldierWalkImgRight {
   background-image: url("./assets/images/rts/soldier_walk.png");
   background-size: cover;
   background-position: center;
-  width: 34px;
-  height: 34px;
+  width: 68px;
+  height: 68px;
   background-repeat: no-repeat;
   animation-name: playerMoves;
   animation-duration: 0.8s;
@@ -1321,15 +1324,15 @@ h3 {
     background-position: 0 0;
   }
   to {
-    background-position: -204px 0;
+    background-position: -408px 0;
   }
 }
 .obj .soldierWalkImgLeft {
   background-image: url("./assets/images/rts/soldier_walk.png");
   background-size: cover;
   background-position: center;
-  width: 34px;
-  height: 34px;
+  width: 68px;
+  height: 68px;
   background-repeat: no-repeat;
   animation-name: playerMoves;
   animation-duration: 0.8s;
@@ -1405,12 +1408,15 @@ h3 {
   bottom: 30px;
   left: 0px;
   border: 5px solid white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .panel-command .infoUnit {
   width: 140px;
   height: 178px;
   border: 2px solid blue;
-  margin: 10px;
+  background: rgba(143, 142, 142, 0.664);
 }
 .panel-command .infoUnit .portraitUnit {
   width: 120px;
@@ -1437,11 +1443,49 @@ h3 {
   color: white;
   text-align: center;
 }
+.panel-command .commands-container {
+  width: 400px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+}
+.panel-command .commands {
+  width: 400px;
+  height: 100px;
+  border: 2px solid white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 15px 0;
+}
+.panel-command .commands .command {
+  width: 70px;
+  height: 70px;
+  border: 2px solid white;
+  margin: 10px;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  background: rgb(82, 81, 81);
+}
+.panel-command .stats {
+  width: 400px;
+  height: 60px;
+  border: 2px solid white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.panel-command .stats .stat {
+  color: white;
+}
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0.5rem;
+html {
+  margin: 0;
+  padding: 0;
 }
 
 body {
